@@ -16,7 +16,7 @@ FILES:${PN} += "${bindir}/aesdsocket"
 TARGET_LDFLAGS += "-pthread -lrt"
 
 INITSCRIPT_PACKAGES = "${PN}"
-INITSCRIPT_NAME:${PN} = "S99aesdsocket"
+INITSCRIPT_NAME:${PN} = "aesdsocket-start-stop.sh"
 
 do_configure () {
 	:
@@ -30,5 +30,5 @@ do_install () {
 	install -d ${D}${bindir}
 	install -m 0755 ${S}/aesdsocket ${D}${bindir}/
 	install -d ${D}${sysconfdir}/init.d
-	install -m ${S}/aesdsocket-start-stop.sh ${D}${sysconfdir}/init.d/S99aesdsocket
+	install -m ${S}/aesdsocket-start-stop.sh ${D}${sysconfdir}/init.d
 }
